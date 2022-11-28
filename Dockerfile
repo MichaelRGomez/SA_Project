@@ -8,8 +8,8 @@ RUN go mod download
 
 COPY ./cmd/api/*.go ./
 
-RUN go build -o /testing-go
+RUN go build -o /randstring
 
 EXPOSE 4000
 
-CMD [ "/testing-go" ]
+CMD [ "/randstring" ]
