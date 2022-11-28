@@ -31,23 +31,3 @@ func (app *application) makeRandomStringHandler(w http.ResponseWriter, r *http.R
 		app.serverErrorResponse(w, r, err)
 	}
 }
-
-// This handler provides my infromation to the caller of this url
-func (app *application) bioHandler(w http.ResponseWriter, r *http.Request) {
-	bio := envelope{
-		"name":         "michael gomez",
-		"job title":    "student",
-		"company name": "university of belize",
-		"hometown":     "belmopan",
-		"faculty":      "F.S.T",
-	}
-
-	//converting map -> JSON Object
-	err := app.writeJSON(w, http.StatusOK, bio, nil)
-
-	//print error if any
-	if err != nil {
-		app.serverErrorResponse(w, r, err)
-		return
-	}
-}
